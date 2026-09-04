@@ -1,2 +1,5 @@
-# industrial-guardian-SIH
-SIH project
+
+streamlit
+plotly
+pandas
+numpy
