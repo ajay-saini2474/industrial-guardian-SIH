@@ -2,8 +2,6 @@
 INDUSTRIAL GUARDIAN
 SIH-ready explainable predictive-maintenance dashboard.
 
-
-
 Demo highlights:
 - On-premise / edge-first architecture banner
 - Explainable AI: every score has visible contributing signals
@@ -19,15 +17,12 @@ REST, SQL or an edge gateway in production.
 
 from __future__ import annotations
 
-import random
-from datetime import datetime, timedelta
-from typing import Dict, List
+from datetime import datetime
+from typing import Dict
 
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
-except ModuleNotFoundError:
-    go = None
 import streamlit as st
 
 
@@ -438,6 +433,7 @@ def page_mission_control(assessments: Dict[str, Dict]) -> None:
                 st.session_state.page = "Explainable AI"
                 st.rerun()
 
+
 def page_alerts(assessments: Dict[str, Dict]) -> None:
     st.title("🚨 Intelligent Alerts")
     active = {
@@ -591,7 +587,7 @@ def page_maintenance(assessments: Dict[str, Dict]) -> None:
 
 
 def page_risk_analytics(assessments: Dict[str, Dict]) -> None:
-    st.title("📊 Risk & Business ")
+    st.title("📊 Risk & Business")
     rows = []
     for machine, a in assessments.items():
         rows.append({
@@ -647,7 +643,7 @@ def main() -> None:
 
     with st.sidebar:
         st.title("🛡️ Industrial Guardian")
-        st.caption("SIH prototype ·  predictive maintenance")
+        st.caption("SIH prototype · predictive maintenance")
         pages = [
             "Mission Control",
             "Intelligent Alerts",
@@ -665,7 +661,7 @@ def main() -> None:
 
         st.divider()
         st.markdown("**Architecture**")
-        st.write("Sensor → Edge gateway → Local AI → ")
+        st.write("Sensor → Edge gateway → Local AI → Dashboard")
         st.success("No external cloud required for this demo.")
 
         if st.button("Refresh live data"):
